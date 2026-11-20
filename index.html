@@ -132,6 +132,7 @@ body[data-section="home"] .fab{display:none}
 .wed{position:relative;min-height:88vh;display:grid;place-items:center;padding-block:110px 90px;overflow:hidden}
 .wed-bg{position:absolute;inset:0;opacity:0;transition:opacity .7s}
 .wed-bg.on{opacity:.75}
+.wed-bg{transition:opacity .5s}
 .wed ul{position:relative;list-style:none;margin:0;padding:0;text-align:center}
 .wed li a{font-family:var(--display);font-weight:300;font-size:var(--h2);line-height:var(--lh);text-decoration:none;display:inline-flex;align-items:center;gap:14px;background:linear-gradient(currentColor,currentColor) 0 92%/0 1px no-repeat;transition:background-size .4s}
 .wed li a:hover,.wed li a:focus-visible{background-size:100% 1px}
@@ -261,12 +262,11 @@ footer.site a{text-decoration:underline;text-underline-offset:2px}
 <section class="view" id="v-home">
   <h1 class="sr">Rosie Hastie, photographer and artist, Hobart, Tasmania</h1>
   <div class="hero" id="hero">
-    <div class="slide ph on" style="background:url(img/home-01.jpg) center/cover no-repeat" role="img" aria-label="Fog rolling around dark sea stacks at dusk, from An Awaiting"></div>
-    <div class="slide ph real" style="--g:url(img/art-glow.jpg) center/cover no-repeat" role="img" aria-label="Paper mountain lit by a warm glow through mist"></div>
-    <div class="slide ph real" style="--g:url(img/art-cave.jpg) center/cover no-repeat" role="img" aria-label="Looking out from a sea cave at golden light"></div>
-    <div class="slide ph real" style="--g:url(img/wed-couple.jpg) center/cover no-repeat" role="img" aria-label="Couple walking up a granite slope at dusk"></div>
-    <div class="slide ph real" style="--g:url(img/com-dusk-house.jpg) center/cover no-repeat" role="img" aria-label="Coastal house lit at dusk under purple clouds"></div>
-    <div class="slide ph real" style="--g:url(img/art-storm.jpg) center/cover no-repeat" role="img" aria-label="Storm clouds over desert hills"></div>
+    <div class="slide ph real on" style="--g:url(img/home-old-01.jpg) center/cover no-repeat" role="img" aria-label="Dark sea stacks under a night sky, waves washing through"></div>
+    <div class="slide ph real" style="--g:url(img/home-old-02.jpg) center bottom/cover no-repeat" role="img" aria-label="Storm front rolling across a flat plain"></div>
+    <div class="slide ph real" style="--g:url(img/home-old-03.jpg) center/cover no-repeat" role="img" aria-label="Wedding couple laughing cheek to cheek at dusk"></div>
+    <div class="slide ph real" style="--g:url(img/home-old-04.jpg) center/cover no-repeat" role="img" aria-label="Couple walking along the shoreline in black and white"></div>
+    <div class="slide ph real" style="--g:url(img/home-old-05.jpg) center/cover no-repeat" role="img" aria-label="Sea cliffs glowing with warm light through mist"></div>
     <p class="tag">Fine art, wedding &amp; commercial photography · Hobart/nipaluna</p>
     <button class="pause" id="pause" aria-pressed="false">Pause</button>
   </div>
@@ -356,18 +356,18 @@ footer.site a{text-decoration:underline;text-underline-offset:2px}
 <section class="view" id="v-weddings">
   <h1 class="sr">Weddings</h1>
   <div class="wed wrap">
-    <div class="wed-bg ph real" id="wedBg" style="--g:url(img/wed-couple.jpg) center/cover no-repeat"></div>
+    <div class="wed-bg ph real" id="wedBg" style="--g:url(img/wed-qinqin-john.jpg) center/cover no-repeat"></div>
     <div>
       <ul id="wedList">
-        <li><a href="#wedding-project" data-t="real"><span class="th ph real" style="--g:url(img/wed-couple.jpg) center/cover no-repeat"></span>Qin Qin + John</a></li>
-        <li><a href="#wedding-project" data-t="real"><span class="th ph real" style="--g:url(img/wed-couple.jpg) center/cover no-repeat"></span>Bianca + Tom</a></li>
-        <li><a href="#wedding-project" data-t="real"><span class="th ph real" style="--g:url(img/wed-couple.jpg) center/cover no-repeat"></span>Freya + Nick</a></li>
-        <li><a href="#wedding-project" data-t="real"><span class="th ph real" style="--g:url(img/wed-couple.jpg) center/cover no-repeat"></span>Genevieve + Ollie</a></li>
-        <li><a href="#wedding-project" data-t="real"><span class="th ph real" style="--g:url(img/wed-couple.jpg) center/cover no-repeat"></span>Megan + Steffi</a></li>
-        <li><a href="#wedding-project" data-t="real"><span class="th ph real" style="--g:url(img/wed-couple.jpg) center/cover no-repeat"></span>Helen + Brin</a></li>
-        <li><a href="#wedding-project" data-t="real"><span class="th ph real" style="--g:url(img/wed-couple.jpg) center/cover no-repeat"></span>Kelly + Leigh</a></li>
-        <li><a href="#wedding-project" data-t="real"><span class="th ph real" style="--g:url(img/wed-couple.jpg) center/cover no-repeat"></span>Natasha + Daniel</a></li>
-        <li><a href="#wedding-project" data-t="real"><span class="th ph real" style="--g:url(img/wed-couple.jpg) center/cover no-repeat"></span>Ben + Jonathan</a></li>
+        <li><a href="#wedding-project" data-bg="url(img/wed-qinqin-john.jpg) center/cover no-repeat"><span class="th ph real" style="--g:url(img/wed-qinqin-john.jpg) center/cover no-repeat"></span>Qin Qin + John</a></li>
+        <li><a href="#wedding-project" data-bg="url(img/wed-bianca-tom.jpg) center/cover no-repeat"><span class="th ph real" style="--g:url(img/wed-bianca-tom.jpg) center/cover no-repeat"></span>Bianca + Tom</a></li>
+        <li><a href="#wedding-project" data-bg="url(img/wed-freya-nick.jpg) center/cover no-repeat"><span class="th ph real" style="--g:url(img/wed-freya-nick.jpg) center/cover no-repeat"></span>Freya + Nick</a></li>
+        <li><a href="#wedding-project" data-bg="url(img/wed-genevieve-ollie.jpg) center/cover no-repeat"><span class="th ph real" style="--g:url(img/wed-genevieve-ollie.jpg) center/cover no-repeat"></span>Genevieve + Ollie</a></li>
+        <li><a href="#wedding-project" data-bg="url(img/wed-megan-steffi.jpg) center/cover no-repeat"><span class="th ph real" style="--g:url(img/wed-megan-steffi.jpg) center/cover no-repeat"></span>Megan + Steffi</a></li>
+        <li><a href="#wedding-project" data-bg="url(img/wed-helen-brin.jpg) center/cover no-repeat"><span class="th ph real" style="--g:url(img/wed-helen-brin.jpg) center/cover no-repeat"></span>Helen + Brin</a></li>
+        <li><a href="#wedding-project" data-bg="url(img/wed-kelly-leigh.jpg) 90% 100%/cover no-repeat"><span class="th ph real" style="--g:url(img/wed-kelly-leigh.jpg) 90% 100%/cover no-repeat"></span>Kelly + Leigh</a></li>
+        <li><a href="#wedding-project" data-bg="url(img/wed-natasha-daniel.jpg) center/cover no-repeat"><span class="th ph real" style="--g:url(img/wed-natasha-daniel.jpg) center/cover no-repeat"></span>Natasha + Daniel</a></li>
+        <li><a href="#wedding-project" data-bg="url(img/wed-ben-jonathan.jpg) center/cover no-repeat"><span class="th ph real" style="--g:url(img/wed-ben-jonathan.jpg) center/cover no-repeat"></span>Ben + Jonathan</a></li>
       </ul>
       <div class="wed-cta"><a class="btn" href="#enquiries">Wedding enquiries</a></div>
     </div>
@@ -530,7 +530,7 @@ footer.site a{text-decoration:underline;text-underline-offset:2px}
   // wedding hover
   var bg=document.getElementById("wedBg");
   document.querySelectorAll("#wedList a").forEach(function(a){
-    function on(){bg.className="wed-bg ph real on"}
+    function on(){bg.style.setProperty("--g",a.dataset.bg);bg.className="wed-bg ph real on"}
     a.addEventListener("mouseenter",on); a.addEventListener("focus",on);
     a.addEventListener("mouseleave",function(){bg.classList.remove("on")});
     a.addEventListener("blur",function(){bg.classList.remove("on")});
