@@ -16,10 +16,10 @@
   color-scheme:light;
 }
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-weight:400;font-size:var(--h5);line-height:var(--lh);transition:background .5s,color .5s}
-body[data-section="art"],body[data-section="home"],body[data-section="info"]{--bg:#000;--fg:#f2efec;--muted:#9a948f;--rule:rgba(255,255,255,.16);color-scheme:dark}
+body[data-section="art"],body[data-section="home"]{--bg:#000;--fg:#f2efec;--muted:#9a948f;--rule:rgba(255,255,255,.16);color-scheme:dark}
 body[data-section="weddings"]{--bg:#000;--fg:#f2efec;--muted:#9a948f;--rule:rgba(255,255,255,.16);color-scheme:dark}
 body[data-section="wedding-project"],body[data-section="enquiries"]{--bg:var(--blush);--fg:#1d1916;--muted:#7a6f68;--rule:rgba(60,40,30,.16)}
-body[data-section="commercial"],body[data-section="commercial-project"]{--bg:#fff;--fg:#111;--muted:#77716c}
+body[data-section="commercial"],body[data-section="commercial-project"],body[data-section="info"]{--bg:#fff;--fg:#111;--muted:#77716c}
 body[data-section="art-project"]{--bg:#000;--fg:#f2efec;--muted:#9a948f;--rule:rgba(255,255,255,.16);color-scheme:dark}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
 a{color:inherit}
@@ -186,15 +186,27 @@ form{display:flex;flex-direction:column;margin-top:28px}
 .ok{grid-column:1/-1;font-size:14px;padding:12px 0;border-top:1px solid var(--rule)}
 
 /* Info */
-.info{display:grid;grid-template-columns:repeat(12,1fr);gap:28px;padding-block:30px 80px}
-.info .ph{grid-column:1/6;aspect-ratio:4/5}
-.info .txt{grid-column:7/13;min-width:0}
-.info h1{font-family:var(--display);font-weight:300;font-size:var(--h2);line-height:var(--lh);margin:0 0 20px;text-wrap:balance}
-.info p{font-size:var(--h4);line-height:var(--lh);max-width:58ch}
-.info h2{font:500 11px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:34px 0 10px}
-.clients{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:var(--h3)}
-.press{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;font-size:14px}
-.rows a,.rows div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--rule);text-decoration:none;font-size:14px}
+.info{padding-block:20px 60px}
+.ab{display:grid;grid-template-columns:repeat(12,1fr);gap:28px;padding-bottom:40px}
+.ab .ph{grid-column:1/7;aspect-ratio:1/1}
+.ab .txt{grid-column:7/13;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.info h1,.info h2{font-family:var(--display);font-weight:300;line-height:var(--lh);margin:0}
+.info h1{font-size:var(--h2)}
+.info h2{font-size:var(--h3)}
+.info p{font-size:var(--h5);line-height:var(--lh);max-width:62ch;margin:0}
+.isec{border-top:1px solid var(--rule);padding:36px 0 44px}
+.con{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.con .l{display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.con .l p{max-width:40ch}
+.con dl{margin:0;font-size:var(--h5)}
+.con dt{margin:0}
+.con dd{margin:0 0 18px}
+.con dd a{text-decoration:underline;text-underline-offset:2px;display:block}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.trio .ph{aspect-ratio:2/3}
+.clients{display:grid;grid-template-columns:repeat(4,1fr);gap:0 28px;margin-top:36px;font-size:var(--h5)}
+.clients ul{list-style:none;margin:0;padding:0}
+.pt-ph{margin-top:24px;min-height:420px;border:1px dashed var(--muted);display:grid;place-items:center;color:var(--muted);font-size:var(--h5)}
 
 /* Footer */
 footer.site{background:#000;color:#f2efec;position:relative}
@@ -223,9 +235,14 @@ footer.site a{text-decoration:underline;text-underline-offset:2px}
   .art-intro p,.art-intro .links{grid-column:1/-1}
   .enq{grid-template-columns:1fr}
   .enq .ph{position:static;aspect-ratio:3/2}
-  .info .ph,.info .txt{grid-column:1/-1}
-  .info .ph{aspect-ratio:3/2}
-  .press{grid-template-columns:1fr}
+  .ab .ph,.ab .txt{grid-column:1/-1}
+  .ab .txt{gap:20px}
+  .con{grid-template-columns:1fr}
+  .con .l{gap:16px}
+  .trio{grid-template-columns:1fr 1fr}
+  .trio .ph:last-child{display:none}
+  .clients{grid-template-columns:1fr 1fr;gap:16px 28px}
+  .pt-ph{min-height:260px}
   .strip{grid-template-columns:1fr 1fr}
   .strip .ph:last-child{display:none}
   footer.site .big{display:none}
@@ -439,24 +456,36 @@ VENUE NAME AND LOCATION`;</script><template data-pt-type='blog' data-pt-slidesho
 <!-- INFO -->
 <section class="view" id="v-info">
   <div class="wrap info">
-    <div class="ph t-portrait" role="img" aria-label="Portrait of Rosie Hastie"></div>
-    <div class="txt">
-      <h1>Rosie Hastie is a photographer and artist based in Hobart/nipaluna.</h1>
-      <p>Rosie works across fine art, weddings and commercial photography. She holds a Masters in Photography from the Tasmanian School of Art, completed a residency in Berlin in 2017, and has worked as a lighting technician at MONA and tutored at UTAS. She also makes public artworks and consults on creative projects.</p>
-      <h2>Contact</h2>
-      <div class="rows">
-        <div><span>Email</span><span>rosiehastie@gmail.com</span></div>
-        <div><span>Phone</span><span>+61 404 542 525</span></div>
-        <a href="#info"><span>Instagram, weddings</span><span>@rosiehastie_weddings ↗</span></a>
-        <a href="#info"><span>Instagram, art</span><span>@rosiehastie_art ↗</span></a>
-        <a href="#enquiries"><span>Wedding enquiries</span><span>→</span></a>
+    <div class="ab">
+      <div class="ph t-portrait" role="img" aria-label="Portrait of Rosie Hastie"></div>
+      <div class="txt">
+        <h1>A bit about Rosie</h1>
+        <p>A versatile storyteller, Rosie blends technical skill with a passion for capturing genuine, spontaneous moments. From working as a lighting technician at MONA to tutoring at UTAS and photographing weddings and partaking in arts residencies overseas, she thrives in diverse roles. Her work reflects a deep connection to the arts community, and she also engages in public artworks and consultancy, helping others bring their creative visions to life. Rosie approaches every project with enthusiasm and a commitment to storytelling, transforming everyday scenes into something extraordinary.</p>
       </div>
-      <h2>Selected clients</h2>
-      <div class="clients"><span>ABC</span><span>MONA</span><span>Tourism Tasmania</span><span>Blundstone</span><span>Saffire</span><span>TMAG</span><span>Lark</span><span>Oroton</span><span>Toyota</span><span>Theatre Royal</span><span>Broadsheet</span><span>IHG Hotels</span></div>
-      <h2>Published in</h2>
-      <div class="press"><span>Broadsheet</span><span>Art Guide Australia</span><span>Artichoke</span><span>Ignant</span><span>Monument Review</span><span>Atlas du Voyage</span></div>
-      <h2>Representation</h2>
-      <div class="rows"><a href="#info"><span>Bett Gallery, Hobart</span><span>↗</span></a><a href="#info"><span>Flinders Lane Gallery, Melbourne</span><span>↗</span></a><a href="#info"><span>Artist CV</span><span>PDF ↓</span></a></div>
+    </div>
+    <div class="isec con">
+      <div class="l">
+        <h2>Connect</h2>
+        <p>Every project begins with understanding what matters most. From intimate portraits to large-scale commercial campaigns, each is approached with the same curiosity, care and attention to detail.</p>
+      </div>
+      <dl>
+        <dt>Email</dt><dd><a href="mailto:rosiehastie@gmail.com">rosiehastie@gmail.com ↗</a></dd>
+        <dt>Phone</dt><dd>+61 404 542 525</dd>
+        <dt>Instagram</dt><dd><a href="https://instagram.com/rosiehastie_weddings" target="_blank" rel="noopener">@rosiehastie_weddings ↗</a><a href="https://instagram.com/rosiehastie_art" target="_blank" rel="noopener">@rosiehastie_art ↗</a></dd>
+      </dl>
+    </div>
+    <div class="isec trio">
+      <div class="ph real" style="--g:url(img/com-portrait.jpg) center/cover no-repeat" role="img" aria-label="Portrait"></div>
+      <div class="ph real" style="--g:url(img/com-atrium.jpg) center/cover no-repeat" role="img" aria-label="Interior"></div>
+      <div class="ph real" style="--g:url(img/com-artwork-interior.jpg) center/cover no-repeat" role="img" aria-label="Interior"></div>
+    </div>
+    <div class="isec">
+      <h2>Select clients</h2>
+      <div class="clients"><ul><li>ABC</li><li>Lavazza</li><li>Hansen Yuncken</li><li>Little City</li><li>Tourism Tasmania</li><li>Uber</li><li>Blundstone</li><li>Cumulus Architects</li></ul><ul><li>Lark</li><li>TMAG</li><li>Broadsheet</li><li>Toyota</li><li>Theatre Royal</li><li>Oroton</li><li>Jaws Architects</li></ul><ul><li>MONA</li><li>Artichoke Magazine</li><li>Art Monthly</li><li>Little City Group</li><li>Ignant Magazine</li><li>Federal Group</li></ul><ul><li>Yellow</li><li>DarkLab</li><li>Arts Tasmania</li><li>IHG Hotels</li><li>Saffire</li><li>Australian Traveller</li><li>Tallaker</li><li>TikTok</li></ul></div>
+    </div>
+    <div class="isec">
+      <h2>Published work</h2>
+      <div class="pt-ph">Pic-Time gallery goes here</div>
     </div>
   </div>
 </section>
@@ -503,7 +532,7 @@ VENUE NAME AND LOCATION`;</script><template data-pt-type='blog' data-pt-slidesho
     weddings:"Hover a name to swap the full-screen background. On phones, a thumbnail shows beside each name.",
     "wedding-project":"This gallery is your Pic-Time blog for Bianca + Tom, pulled in live. Any changes you make in Pic-Time show up here automatically. Vendor names still need filling in within Pic-Time. Added a 'Check your date' button at the end of each gallery.",
     enquiries:"Form matches the Figma field set. Placeholder hints replace Value.",
-    info:"New page. Bio, contact, clients, press and representation in one place."
+    info:"Rebuilt to match the Figma: bio, Connect, three images, select clients, then a Published work gallery (a Pic-Time embed, still to come).\n\nPortrait and the three images are stand-ins for now."
   };
   var views=["home","art","art-project","commercial","commercial-project","weddings","wedding-project","enquiries","info"];
   var body=document.body, menu=document.getElementById("menu"), openB=document.getElementById("openMenu");
