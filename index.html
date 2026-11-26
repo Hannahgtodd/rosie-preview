@@ -25,6 +25,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 a{color:inherit}
 :focus-visible{outline:1.5px solid currentColor;outline-offset:3px}
 [hidden]{display:none!important}
+/* Image protection: deter saving */
+img,.ph,.pt-embed{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+img{-webkit-user-drag:none}
+
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* Logo + icons (from Figma exports) */
@@ -44,7 +48,7 @@ a{color:inherit}
 /* Header */
 header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;display:flex;justify-content:space-between;align-items:center;padding:18px var(--gutR) 18px var(--gut);font-size:24px;background:transparent;transition:background .3s}
 header.top.solid{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(6px)}
-body[data-section="home"] header.top{position:fixed;left:0;right:0;color:#fff}
+body[data-section="home"] header.top,body[data-section="weddings"] header.top{position:fixed;left:0;right:0;color:#fff}
 .burger{background:none;border:0;color:inherit;cursor:pointer;padding:0;margin-right:-6px}
 
 /* Menu */
@@ -133,7 +137,7 @@ body[data-section="home"] .fab{display:none}
 #filter label:last-child{border:0}
 
 /* Weddings list */
-.wed{position:relative;min-height:88vh;display:grid;place-items:center;padding-block:110px 90px;overflow:hidden}
+.wed{position:relative;min-height:100vh;min-height:100svh;display:grid;place-items:center;padding-block:110px 90px;overflow:hidden}
 .wed-bg{position:absolute;inset:0;opacity:0;transition:opacity .7s}
 .wed-bg.on{opacity:.75}
 .wed-bg{transition:opacity .5s}
@@ -336,7 +340,7 @@ This was the first exhibition that inspired my practice....
 Horizons Revisited
 Purchase:
 Hobart - Bett Gallery
-Melbourne - Flinders Lane Gallery`;</script><template data-pt-type='blog' data-pt-slideshowid='69fabfdaa160f856d8693111' ></template><script src='https://rosiehastiephotography.pic-time.com/-horizonsrevisited/slideswebcomponentembed.js/69fabfdaa160f856d8693111?features=lightbox,pinterest&filtertags=' type='text/javascript' data-pt-scriptslideshowid='69fabfdaa160f856d8693111'></script>
+Melbourne - Flinders Lane Gallery`;</script><template data-pt-type='blog' data-pt-slideshowid='69fabfdaa160f856d8693111' ></template><script src='https://rosiehastiephotography.pic-time.com/-horizonsrevisited/slideswebcomponentembed.js/69fabfdaa160f856d8693111?features=lightbox&filtertags=' type='text/javascript' data-pt-scriptslideshowid='69fabfdaa160f856d8693111'></script>
 </div>
     <div class="video ph real" style="--g:url(img/art-gallery.jpg) center/cover no-repeat"><button class="play" aria-label="Play exhibition video"></button></div>
     <p style="text-align:center;font-size:13px;color:var(--muted);margin:12px 0 0">Installation view, Bett Gallery</p>
@@ -370,7 +374,7 @@ Melbourne - Flinders Lane Gallery`;</script><template data-pt-type='blog' data-p
 
 
 May 3, 2026
-When you see a beautiful photo, it can take your breath away. It feels almost magical. Every detail matters, from the light to the colors. A great image tells a story without words. It draws you in. You want to look closer.`;</script><template data-pt-type='blog' data-pt-slideshowid='69f68b6b9709114bbdaa174b' ></template><script src='https://rosiehastiephotography.pic-time.com/-tegan--jono9/slideswebcomponentembed.js/69f68b6b9709114bbdaa174b?features=lightbox,pinterest&filtertags=' type='text/javascript' data-pt-scriptslideshowid='69f68b6b9709114bbdaa174b'></script>
+When you see a beautiful photo, it can take your breath away. It feels almost magical. Every detail matters, from the light to the colors. A great image tells a story without words. It draws you in. You want to look closer.`;</script><template data-pt-type='blog' data-pt-slideshowid='69f68b6b9709114bbdaa174b' ></template><script src='https://rosiehastiephotography.pic-time.com/-tegan--jono9/slideswebcomponentembed.js/69f68b6b9709114bbdaa174b?features=lightbox&filtertags=' type='text/javascript' data-pt-scriptslideshowid='69f68b6b9709114bbdaa174b'></script>
 </div>
     <div class="phead">
       <h1>Dolphin Sands House</h1>
@@ -423,7 +427,7 @@ HAIR STYLIST NAME
 
 
 Venue
-VENUE NAME AND LOCATION`;</script><template data-pt-type='blog' data-pt-slideshowid='69f68e294909849a860505b7' ></template><script src='https://rosiehastiephotography.pic-time.com/-bianca--tom/slideswebcomponentembed.js/69f68e294909849a860505b7?features=lightbox,pinterest&filtertags=' type='text/javascript' data-pt-scriptslideshowid='69f68e294909849a860505b7'></script>
+VENUE NAME AND LOCATION`;</script><template data-pt-type='blog' data-pt-slideshowid='69f68e294909849a860505b7' ></template><script src='https://rosiehastiephotography.pic-time.com/-bianca--tom/slideswebcomponentembed.js/69f68e294909849a860505b7?features=lightbox&filtertags=' type='text/javascript' data-pt-scriptslideshowid='69f68e294909849a860505b7'></script>
 </div>
     <div class="phead">
       <h1>Bianca + Tom</h1>
@@ -566,8 +570,13 @@ VENUE NAME AND LOCATION`;</script><template data-pt-type='blog' data-pt-slidesho
   var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add("seen")})},{threshold:.15});
 
   // header solid on scroll
-  window.addEventListener("scroll",function(){document.getElementById("top").classList.toggle("solid",scrollY>40&&body.dataset.section!=="home")},{passive:true});
+  window.addEventListener("scroll",function(){document.getElementById("top").classList.toggle("solid",scrollY>40&&body.dataset.section!=="home"&&body.dataset.section!=="weddings")},{passive:true});
 
+
+  // image protection: block right-click/save and dragging on images and galleries
+  function isImg(t){return t&&t.closest&&(t.tagName==="IMG"||t.closest(".ph,.pt-embed,img"))}
+  document.addEventListener("contextmenu",function(e){if(isImg(e.target))e.preventDefault()});
+  document.addEventListener("dragstart",function(e){if(isImg(e.target))e.preventDefault()});
   // slideshow
   var slides=[].slice.call(document.querySelectorAll("#hero .slide")),si=0,playing=true;
   var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
