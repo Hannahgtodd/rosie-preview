@@ -104,10 +104,14 @@ body[data-section="home"] header.top{position:fixed;left:0;right:0;color:#fff}
 .a1{grid-column:1/7;aspect-ratio:3/2}.a2{grid-column:7/13;aspect-ratio:3/2}
 .a3{grid-column:1/8;grid-row:span 2;aspect-ratio:auto;min-height:100%}.a4{grid-column:8/13;aspect-ratio:3/2}.a4b{grid-column:8/13;aspect-ratio:3/2}
 .a5{grid-column:1/8;aspect-ratio:3/2}.a6{grid-column:8/13;aspect-ratio:3/2;align-self:start}
-.art-intro{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;padding-block:40px 64px;border-top:1px solid var(--rule)}
-.art-intro p{grid-column:1/7;font-family:var(--display);font-weight:300;font-size:var(--h3);line-height:var(--lh);margin:0;max-width:34ch}
-.art-intro .links{grid-column:8/13;display:flex;flex-direction:column;gap:10px;font-size:13px}
-.art-intro .links a{text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:10px;display:flex;justify-content:space-between}
+.art-intro{display:flex;flex-direction:column;align-items:center;text-align:center;gap:36px;padding-block:clamp(80px,12vw,160px);border-top:1px solid var(--rule)}
+.art-intro p{font-size:var(--h5);line-height:var(--lh);margin:0;max-width:44ch;color:var(--muted)}
+.art-intro .links{display:flex;flex-direction:column;align-items:center;gap:4px}
+.art-intro .links a{font-family:var(--display);font-weight:300;font-size:clamp(34px,5vw,64px);line-height:1.15;text-decoration:none;transition:opacity .2s}
+.art-intro .links a:hover{opacity:.7}
+.art-intro .links a span{font-family:var(--body);font-weight:300;font-size:.6em;margin-left:.3em;vertical-align:.15em}
+.art-intro .cv{display:inline-block;min-width:160px;padding:6px 18px;border:1px solid currentColor;font-size:var(--h6);text-decoration:none;transition:background .2s,color .2s}
+.art-intro .cv:hover{background:var(--fg);color:var(--bg)}
 
 /* Page intro */
 .intro{font-family:var(--display);font-weight:300;font-size:var(--h2);line-height:var(--lh);max-width:24em;margin:24px 0 40px;text-wrap:pretty}
@@ -235,7 +239,6 @@ footer.site a{text-decoration:underline;text-underline-offset:2px}
 @media (max-width:760px){
   :root{--h1:36px;--h2:28px}
   .art-grid > .tile,.com-grid > .tile{grid-row:auto !important;min-height:0 !important;grid-column:1/-1 !important;margin-top:0 !important;aspect-ratio:4/3 !important}
-  .art-intro p,.art-intro .links{grid-column:1/-1}
   .enq .ph,.enq .etxt,.enq form{grid-column:1/-1}
   .enq .ph{aspect-ratio:4/5}
   .ab .ph,.ab .txt{grid-column:1/-1}
@@ -309,10 +312,10 @@ footer.site a{text-decoration:underline;text-underline-offset:2px}
     <div class="art-intro">
       <p>Photographs about perception, time, space, light and truth. Represented by Bett Gallery, Hobart/nipaluna, and Flinders Lane Gallery, Melbourne/naarm.</p>
       <div class="links">
-        <a href="#info">Artist CV <span>PDF ↓</span></a>
-        <a href="#art">Bett Gallery <span>↗</span></a>
-        <a href="#art">Flinders Lane Gallery <span>↗</span></a>
+        <a href="https://www.bettgallery.com.au" target="_blank" rel="noopener">Bett Gallery<span aria-hidden="true">↗</span></a>
+        <a href="https://www.flg.com.au" target="_blank" rel="noopener">Flinders Lane Gallery<span aria-hidden="true">↗</span></a>
       </div>
+      <a class="cv" href="#art">Artist CV (PDF)</a>
     </div>
   </div>
 </section>
