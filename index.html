@@ -166,22 +166,25 @@ body[data-section="home"] .fab{display:none}
 .wed-proj-cta{text-align:center;padding:10px 0 40px}
 
 /* Enquiries */
-.enq{display:grid;grid-template-columns:5fr 7fr;gap:40px;padding-block:20px 80px;align-items:start}
-.enq .ph{aspect-ratio:4/5;position:sticky;top:90px}
-.enq h1{font-family:var(--display);font-weight:300;font-size:var(--h1);margin:0 0 16px;line-height:var(--lh)}
-.enq .lede{font-size:var(--h4);line-height:var(--lh);max-width:56ch;margin:0 0 14px}
+.enq{display:grid;grid-template-columns:repeat(12,1fr);gap:28px;padding-block:20px 60px;align-items:start}
+.enq .etxt{grid-column:7/13;align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-width:0}
+.enq form{grid-column:7/13;margin-top:20px}
+.enq .ph{grid-column:1/7;aspect-ratio:1/1}
+.enq h1{font-family:var(--display);font-weight:300;font-size:var(--h2);margin:0;line-height:var(--lh)}
+.enq .lede{font-size:var(--h5);line-height:var(--lh);max-width:62ch;margin:0 0 10px}
+.enq .lede:last-child{margin:0}
 .inc{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:22px 0 34px}
 .inc div{background:var(--bg);padding:14px}
 .inc b{display:block;font-family:var(--display);font-weight:400;font-size:22px}
 .inc small{color:var(--muted);font-size:12px}
 form{display:flex;flex-direction:column;margin-top:28px}
-.fld{display:flex;flex-direction:column;gap:10px;padding:16px 0 12px;border-bottom:1px solid #3a3330;min-width:0}
-.fld label{font:400 var(--h4) var(--body);color:var(--fg)}
-.fld input,.fld textarea{font:400 var(--h4) var(--body);color:var(--fg);background:transparent;border:0;padding:0;border-radius:0;resize:vertical}
+.fld{display:flex;flex-direction:column;gap:8px;padding:14px 0 10px;border-bottom:1px solid #3a3330;min-width:0}
+.fld label{font:400 var(--h6) var(--body);color:var(--fg)}
+.fld input,.fld textarea{font:400 var(--h5) var(--body);color:var(--fg);background:transparent;border:0;padding:0;border-radius:0;resize:vertical}
 .fld input::placeholder,.fld textarea::placeholder{color:#b4aca6}
 .fld input:focus,.fld textarea:focus{outline:none}
 .fld:focus-within{border-bottom-color:var(--fg)}
-.send{margin-top:30px;height:40px;background:#000;color:#fff;border:0;font:400 var(--h4) var(--body);letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:opacity .2s}
+.send{width:100%;margin-top:20px;height:36px;background:#000;color:#fff;border:0;font:400 var(--h4) var(--body);letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:opacity .2s}
 .send:hover{opacity:.82}
 .ok{grid-column:1/-1;font-size:14px;padding:12px 0;border-top:1px solid var(--rule)}
 
@@ -233,8 +236,8 @@ footer.site a{text-decoration:underline;text-underline-offset:2px}
   :root{--h1:36px;--h2:28px}
   .art-grid > .tile,.com-grid > .tile{grid-row:auto !important;min-height:0 !important;grid-column:1/-1 !important;margin-top:0 !important;aspect-ratio:4/3 !important}
   .art-intro p,.art-intro .links{grid-column:1/-1}
-  .enq{grid-template-columns:1fr}
-  .enq .ph{position:static;aspect-ratio:3/2}
+  .enq .ph,.enq .etxt,.enq form{grid-column:1/-1}
+  .enq .ph{aspect-ratio:4/5}
   .ab .ph,.ab .txt{grid-column:1/-1}
   .ab .txt{gap:20px}
   .con{grid-template-columns:1fr}
@@ -431,12 +434,15 @@ VENUE NAME AND LOCATION`;</script><template data-pt-type='blog' data-pt-slidesho
 <!-- ENQUIRIES -->
 <section class="view" id="v-enquiries">
   <div class="wrap enq">
-    <div class="ph real" style="--g:url(img/wed-couple.jpg) center/cover no-repeat" role="img" aria-label="Couple walking up a granite slope at dusk"></div>
-    <div>
+    <div class="ph real" style="--g:url(img/wed-couple.jpg) 75% center/cover no-repeat" role="img" aria-label="Couple walking up a granite slope at dusk"></div>
+    <div class="etxt">
       <h1>Enquiries</h1>
-      <p class="lede">Relaxed, documentary wedding photography. Less posing, more of the real day: the big moments, the quiet ones, and the chaos in between.</p>
-      <p class="lede">Tell me about your plans and I'll come back to you within two working days with availability and a full guide.</p>
-            <form id="enqForm" novalidate>
+      <div>
+        <p class="lede">Relaxed, documentary wedding photography. Less posing, more of the real day: the big moments, the quiet ones, and the chaos in between.</p>
+        <p class="lede">Tell me about your plans and I'll come back to you within two working days with availability and a full guide.</p>
+      </div>
+    </div>
+    <form id="enqForm" novalidate>
         <div class="fld"><label for="f1">First name</label><input id="f1" placeholder="Your first name" required></div>
         <div class="fld"><label for="f2">Surname</label><input id="f2" placeholder="Your surname"></div>
         <div class="fld"><label for="f3">Partner’s first name</label><input id="f3" placeholder="Their first name"></div>
@@ -448,8 +454,7 @@ VENUE NAME AND LOCATION`;</script><template data-pt-type='blog' data-pt-slidesho
         <div class="fld"><label for="f9">A bit about yourselves and what you’ve got planned</label><textarea id="f9" rows="3" placeholder="The day, the people, the vibe"></textarea></div>
         <button class="send" type="submit">Send</button>
         <div class="ok" id="ok" hidden>Prototype only: nothing was sent. On the live site this goes to Rosie’s inbox.</div>
-      </form>
-    </div>
+    </form>
   </div>
 </section>
 
@@ -531,7 +536,7 @@ VENUE NAME AND LOCATION`;</script><template data-pt-type='blog' data-pt-slidesho
     "commercial-project":"This gallery is your Pic-Time blog for Dolphin Sands, pulled in live. The blog text in Pic-Time is still placeholder copy, so it needs updating there. Previous/Next cycles through projects in this section.",
     weddings:"Hover a name to swap the full-screen background. On phones, a thumbnail shows beside each name.",
     "wedding-project":"This gallery is your Pic-Time blog for Bianca + Tom, pulled in live. Any changes you make in Pic-Time show up here automatically. Vendor names still need filling in within Pic-Time. Added a 'Check your date' button at the end of each gallery.",
-    enquiries:"Form matches the Figma field set. Placeholder hints replace Value.",
+    enquiries:"Layout now matches the Figma: image left, heading and intro right, form below on the right.\n\nThe intro copy is a draft. What would you like it to say? The photo is a stand-in.",
     info:"Rebuilt to match the Figma: bio, Connect, three images, select clients, then a Published work gallery (a Pic-Time embed, still to come).\n\nPortrait and the three images are stand-ins for now."
   };
   var views=["home","art","art-project","commercial","commercial-project","weddings","wedding-project","enquiries","info"];
